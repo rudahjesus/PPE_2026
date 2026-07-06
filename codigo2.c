@@ -14,38 +14,18 @@
 
 int main()
 {
-    int speedMotorA = 10;
-    int speedMotorB = 10;
+    int speedMotorA = 20;
+    int speedMotorB = 20;
 
-    int sensor0, sensor1, sensor2, sensor3;
+    
     int sensor[4];
 
     srand(time(NULL));
 
-    sensor0 = rand();
-    sensor1 = rand();
-    sensor2 = rand();
-    sensor3 = rand();
-
-    sensor[0] = sensor0;
-    sensor[1] = sensor1;
-    sensor[2] = sensor2;
-    sensor[3] = sensor3;
-
-    for(int k = 0; k < 4; k++)
-    {
-        sensor[k] = sensor[k] / 100;
-
-        if(sensor[k] <= 0)
-        {
-            sensor[k] = 0;
-        }
-
-        if(sensor[k] >= 256)
-        {
-            sensor[k] = 256;
-        }
-    }
+    for(int i = 0; i < 4; i++)
+{
+    sensor[i] = rand() % 256;
+}
 
     for(int i = 0; i < 20; i++)
     {
@@ -90,14 +70,14 @@ int main()
 
         nextSpeedMotorA =
             sensor[0] / 2 +
-            sensor[1] / 4 -
-            sensor[2] / 4 -
+            sensor[1] / 5 -
+            sensor[2] / 5 -
             sensor[3] / 2;
 
         nextSpeedMotorB =
             sensor[3] / 2 +
-            sensor[2] / 4 -
-            sensor[1] / 4 -
+            sensor[2] / 5 -
+            sensor[1] / 5 -
             sensor[0] / 2;
 
         printf("sensor 0: %d || ", sensor[0]);
